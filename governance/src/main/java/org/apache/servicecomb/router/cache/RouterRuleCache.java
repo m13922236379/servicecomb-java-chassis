@@ -60,9 +60,11 @@ public class RouterRuleCache {
 
   private final Representer representer = new Representer();
 
-  public RouterRuleCache() {
+  @Autowired
+  public RouterRuleCache(Environment environment) {
     representer.getPropertyUtils().setSkipMissingProperties(true);
     GovernanceEventManager.register(this);
+    this.environment = environment;
   }
 
   /**
